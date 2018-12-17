@@ -8,7 +8,7 @@ namespace WebApi.Models
        
         string Moneda { get; set; }
         decimal Precio { get; set; }
-        decimal ExtraerCotizacion();
+        void getCotizacion();
 
 
     }

@@ -14,16 +14,14 @@ namespace WebApi.Models
         public RealCotizacion()
         {
             Moneda = "real";
-            Precio = ExtraerCotizacion();
         }
 
-        public decimal ExtraerCotizacion()
+        public void getCotizacion()
         {
             string URL = "https://api.cambio.today/v1/quotes/BRL/ARS/json?quantity=1&key=1526|Qb_bkscLP68GfGgjTmMNM09OR_vwi9VF";
-            string urlParameters = "?key=1526|Qb_bkscLP68GfGgjTmMNM09OR_vwi9VF";
 
-            HttpClientHelper client = new HttpClientHelper(URL, urlParameters);
-            return client.GetPrecio();
+            HttpClientHelper client = new HttpClientHelper(URL);
+            Precio = client.getCotizacion();
         }
     }
 }

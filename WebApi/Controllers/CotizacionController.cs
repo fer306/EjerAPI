@@ -46,22 +46,25 @@ namespace WebApi.Controllers
         [HttpGet("{Moneda}")]
         public IActionResult GetCotizacionByMoneda( [FromRoute] string Moneda )
         {
-            ICotizador cotizacion  = null;
+            ICotizador cotizacion;
 
-            if (Moneda == "dolar")
-            {
-                 cotizacion = new DolarCotizacion();
-            }
-            else if (Moneda == "euro")
-            {
-                cotizacion = new EuroCotizacion();
-            }
-            else if (Moneda == "real")
-            {
-                 cotizacion = new RealCotizacion();
+            switch (Moneda) {
+                case "dolar":
+                    cotizacion = new DolarCotizacion();
+                    break;
+                case "euro":
+                    cotizacion = new EuroCotizacion();
+                    break;
+                case "real":
+                    cotizacion = new RealCotizacion();
+                    break;
+                default:
+                    cotizacion = null;
+                    break;
+
             }
 
-
+            cotizacion.getCotizacion();
 
             if (cotizacion == null)
             {

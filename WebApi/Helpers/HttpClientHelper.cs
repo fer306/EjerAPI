@@ -9,17 +9,16 @@ namespace WebApi.Helpers
     public class HttpClientHelper
     {
         private string _url = "";
-        private string _urlParameters = "";
+        private string _urlParameters = "?key=1526|Qb_bkscLP68GfGgjTmMNM09OR_vwi9VF";
         HttpClient _client = new HttpClient();
 
 
-        public HttpClientHelper( string url, string urlParameters )
+        public HttpClientHelper( string url )
         {
             _url = url;
-            _urlParameters = urlParameters;
         }
 
-        public decimal GetPrecio()
+        public decimal getCotizacion()
         {
             _client.BaseAddress = new Uri(_url);
             _client.DefaultRequestHeaders.Accept.Add(

@@ -13,16 +13,14 @@ namespace WebApi.Models
         public DolarCotizacion()
         {
             Moneda = "dolar";
-            Precio = ExtraerCotizacion();
         }
 
-        public decimal ExtraerCotizacion()
+        public void getCotizacion()
         {
             string URL = "https://api.cambio.today/v1/quotes/USD/ARS/json?quantity=1&key=1526|Qb_bkscLP68GfGgjTmMNM09OR_vwi9VF";
-            string urlParameters = "?key=1526|Qb_bkscLP68GfGgjTmMNM09OR_vwi9VF";
 
-            HttpClientHelper client = new HttpClientHelper(URL, urlParameters);
-            return client.GetPrecio();
+            HttpClientHelper client = new HttpClientHelper(URL);
+            Precio = client.getCotizacion();
         }
     }
 }
