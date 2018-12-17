@@ -6,12 +6,12 @@ using WebApi.Helpers;
 
 namespace WebApi.Models
 {
-    public class Real   :ICotizacion
+    public class RealCotizacion   :ICotizador
     {
         public string Moneda { get; set; }
         public decimal Precio { get; set; }
 
-        public Real()
+        public RealCotizacion()
         {
             Moneda = "real";
             Precio = ExtraerCotizacion();

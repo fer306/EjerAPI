@@ -3,7 +3,7 @@ using WebApi.Helpers;
 
 namespace WebApi.Models
 {
-    public interface ICotizacion
+    public interface ICotizador
     {
        
         string Moneda { get; set; }

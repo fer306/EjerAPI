@@ -34,7 +34,7 @@ namespace WebApi.Controllers
 
         // GET: api/Cotizacion
         [HttpGet]
-        public IEnumerable<ICotizacion> GetCotizaciones()
+        public IEnumerable<ICotizador> GetCotizaciones()
         {
             //var a = new Cotizacion();
             //a.test();
@@ -46,19 +46,19 @@ namespace WebApi.Controllers
         [HttpGet("{Moneda}")]
         public IActionResult GetCotizacionByMoneda( [FromRoute] string Moneda )
         {
-            ICotizacion cotizacion  = null;
+            ICotizador cotizacion  = null;
 
             if (Moneda == "dolar")
             {
-                 cotizacion = new Dolar();
+                 cotizacion = new DolarCotizacion();
             }
             else if (Moneda == "euro")
             {
-                cotizacion = new Euro();
+                cotizacion = new EuroCotizacion();
             }
             else if (Moneda == "real")
             {
-                 cotizacion = new Real();
+                 cotizacion = new RealCotizacion();
             }
 
 
